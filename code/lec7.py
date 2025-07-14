@@ -26,11 +26,14 @@ def div_by(n, d):
         Returns True if d divides n evenly and False otherwise 
     """
     # your code here
-
+    if n%d == 0:
+        return True
+    else:
+        return False
 
 # For example: 
-# print(div_by(10,3))     # print False
-# print(div_by(195,13))   # returns True
+print(div_by(10,3))     # print False
+print(div_by(195,13))   # returns True
 
 ##############################################
 
@@ -82,7 +85,11 @@ def is_palindrome(s):
     Returns True if s is a palindrome and False otherwise
     """
     # your code here
-
+    for i in range(len(s)//2):
+        if s[i] != s[len(s)-1-i]:
+            return False
+    return True
+print(is_palindrome('aba')) 
 ################################################
 
 ################################################
@@ -95,11 +102,16 @@ def keep_consonants(word):
         of word in the order they appear
     """
     # your code here
-
+    consonants = 'aeiou'
+    result = ''
+    for ch in word:
+        if ch not in consonants:
+            result += ch
+    return result
 # For example
-# print(keep_consonants("abcd"))  # prints bcd
-# print(keep_consonants("aaa"))  # prints an empty string
-# print(keep_consonants("babas"))  # prints bbs
+print(keep_consonants("abcd"))  # prints bcd
+print(keep_consonants("aaa"))  # prints an empty string
+print(keep_consonants("babas"))  # prints bbs
 
 
 
