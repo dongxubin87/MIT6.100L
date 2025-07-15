@@ -29,9 +29,13 @@ def make_ordered_list(n):
     from 0 to n (inclusive)
     """
     # your code here
+    list = []
+    for i in range(n+1):
+        list.append(i)
+    return list
 
     
-#print(make_ordered_list(6))  # prints [0, 1, 2, 3, 4, 5, 6]
+# print(make_ordered_list(6))  # prints [0, 1, 2, 3, 4, 5, 6]
 
 #####################################################
 
@@ -44,7 +48,12 @@ def remove_elem(L, e):
     but without any elements equal to e. 
     """
     # your code here
-
+    newList = []
+    for x in L:
+        if x != e:
+            newList.append(x)
+    return newList
+        
   
 # L = [1,2,2,2]
 # print(remove_elem(L, 2))    # prints [1]
@@ -86,7 +95,8 @@ def count_words(sen):
     Returns how many words are in sen (i.e. a word is a 
     a sequence of characters between spaces. """
     # your code here
-
+    list = sen.split(' ')
+    return len(list)
 
 # s = "Hello it's me"
 # print(count_words(s))   # prints 3
@@ -118,7 +128,9 @@ def sort_words(sen):
     Returns a list containing all the words in sen but
     sorted in alphabetical order. """
     # your code here
-
+    l = sen.split(' ')
+    l.sort()
+    return l
 
 # s = "look at this photograph"
 # print(sort_words(s))    # prints ['at', 'look', 'photograph', 'this']
@@ -171,13 +183,15 @@ def square_list(L):
 # L3 = L1 + L2
 # L1.extend([0,6])
 # L2.extend([[0,2],[7,9]])
-
+# print(L3)
+# print(L1,L2)
 ##############
 ## TRICKY EXAMPLE 3: combining
 ##############
 # L = [1,2,3,4]
 # for e in L:
 #     L = L + L
+#     print(e)
 #     print(L)
 
 
@@ -303,7 +317,9 @@ def apply_to_each(L, f):
 # apply_to_each(test, abs)
 # print(test)   # prints [7, 8, 5, 8, 3]
 
-
+a = []
+b = []
+print(id(a) == id(b))
 
 ########################################
 ########## ANSWERS TO AT HOME ##############################
