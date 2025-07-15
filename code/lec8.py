@@ -52,11 +52,11 @@ def is_triangular(n):
         summation of natural numbers (1+2+3+...+k) 
     """
     total = 0
-    for i in range(n):
+    for i in range(n+1):
         total += i
         if total == n:
-            print(True)
-    print(False)
+            return True
+    return False
 
 # # start by runing it on simple test cases
 # print(is_triangular(4))  # print False
@@ -94,9 +94,14 @@ def count_nums_with_sqrt_close_to(n, epsilon):
         epsilon is a positive number < 1
     Returns how many integers have a square root within epsilon of n """
     # your code here
+    count = 0
+    for i in range(n**3):
+       if abs( bisection_root(i) - n)<epsilon:
+           count += 1
+           print(i,bisection_root(i))
+    return count
 
-
-#print(count_nums_with_sqrt_close_to(10, 0.1))
+# print(count_nums_with_sqrt_close_to(10, 0.1))
 
 #############################################################
 
@@ -110,8 +115,9 @@ def f( x ):
     print('in f(x): x =', x)
     return x
 
-# x = 3
-# z = f( x )
+x = 3
+z = f( x )
+
 
 
 ###########################
@@ -189,13 +195,17 @@ def apply(criteria,n):
     (i.e. return True when criteria is applied to them)
     """ 
     # your code here
-
+    count = 0
+    for i in range(n+1):
+     if criteria(i):
+         count +=1
+    return count
 
 def is_even(x):
     return x%2==0
 
 how_many = apply(is_even,10)
-# print(how_many)
+print(how_many)
 
 
 
