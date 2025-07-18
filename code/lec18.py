@@ -30,7 +30,7 @@ origin = Coordinate(0,0)
 
 # #Calling a new method
 # c.to_origin()
-# print(c.x, c.y)
+print(c.x, c.y)
 
 # #Printing a coordinate object
 # print(c)
@@ -45,7 +45,10 @@ origin = Coordinate(0,0)
 # If either are not these types, raise a ValueError.
 class Circle(object):
     def __init__(self, center, radius):
-
+        if type(center) != Coordinate:
+            raise TypeError('center type is incorrect')
+        if type(radius) != int:
+            raise TypeError('radius type is incorrect')
         self.center = center
         self.radius = radius
         
@@ -135,12 +138,12 @@ class SimpleFraction(object):
     def get_inverse(self):
         """ Returns a float representing 1/self """
         # your code here
-        
+        return self.denom/self.num
     def invert(self):
         """ Sets self's numerator to its denominator and vice versa.
             Returns None. """
         # your code here
-        
+        (self.num,self.denom)=(self.denom,self.num)
         
 # f1 = SimpleFraction(3,4)
 # print(f1.num, f1.denom)   # prints 3 4 
