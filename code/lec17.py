@@ -3,10 +3,10 @@
 #################
 class Coordinate(object):
     """ A coordinate made up of an x and y value """
-    def __init__(self, x, y):
-        """ Sets the x and y values """
-        self.x = x
-        self.y = y
+    def __init__(self,x,y):
+      self.x = x
+      self.y = y
+        
 
 # c = Coordinate(3,4)
 # a = 0
@@ -52,14 +52,21 @@ origin = Coordinate(a,a)
 # Number of occupants
 # Color 
 # Decide the type of each data attribute and document this
-
-# Question 2:
-# Create 2 vehicle instances using the class we wrote previously. 
-# One red vehicle with 2 wheels, and 1 occupant
-# One green vehicle with 18 wheels, and 3 occupants
-# Print the first one's number of occupants
-# Print the second one's color
-
+# class Vehicle(object):
+#   def __init__(self,w,o,c):
+#       self.wheels = w
+#       self.occ = o
+#       self.color = c
+# # Question 2:
+# # Create 2 vehicle instances using the class we wrote previously. 
+# # One red vehicle with 2 wheels, and 1 occupant
+# # One green vehicle with 18 wheels, and 3 occupants
+# # Print the first one's number of occupants
+# # Print the second one's color
+# r = Vehicle(2,1,'red')
+# g = Vehicle(18,3,'green')
+# print(r.occ)
+# print(g.color)
 # Question 3:
 # Add on to the code from above for class Vehicle.
 # Create another method for the vehicle class named add_n_occupants, 
@@ -71,12 +78,18 @@ class Vehicle(object):
         self.wheels = w
         self.occ = o
         self.color= c
+        self.max_occupancy = 5
     # add method add_n_occupants here
-        
-# v1 = Vehicle(4,2,'blue')
-# print(v1.occ)   # prints 2
-# print(v1.add_n_occupants(3))   # prints 5
-# print(v1.occ)
+    def add_n_occupants(self,n):
+      if self.max_occupancy < self.occ + n:
+        raise ValueError('n is too big')
+      else:
+        self.occ += n 
+        return self.occ 
+v1 = Vehicle(4,2,'blue')
+print(v1.occ)   # prints 2
+print(v1.add_n_occupants(6))   # prints 5
+print(v1.occ)
 
 # Question 4:
 # Add another data attribute to the Vehicle class, called max_occupancy,
@@ -146,7 +159,7 @@ class Vehicle(object):
 # v1 = Vehicle(4,2,'blue')
 # print(v1.occ)
 # print(v1.add_n_occupants(2))   # should print 4
-# #print(v1.add_n_occupants(2))   # should raise ValueError
+# print(v1.add_n_occupants(2))   # should raise ValueError
 
 # Question 5
 # class Vehicle(object):
