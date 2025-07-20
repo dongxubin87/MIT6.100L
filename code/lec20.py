@@ -66,7 +66,7 @@ class Workout(object):
         if (self.calories == None):
             # calc the calories based on the length of the workout and cal_per_hr
             return Workout.cal_per_hr * (self.end - self.start).total_seconds() / 3600.0
-        else:
+        else: 
             return self.calories
 
     def get_duration(self):
@@ -196,14 +196,15 @@ end = '9/30/2021 1:45 PM'
 # from Jan 1 2021 at 3:30 PM until 4 PM. 
 # You want to estimate the calories from this workout. 
 # Print the number of calories for w_one.
-pass
+w_one = Workout('Jan 1 2021 3:30 PM','Jan 1 2021 4:00 PM')
+print(w_one.get_calories)
 
 # Create another Workout object saved as w_two, 
 # from Jan 1 2021 at 3:35 PM until 4 PM. 
 # You know you burned 300 calories for this workout.  
 # Print the number of calories for w_two. 
-pass
-
+w_two = Workout('Jan 1 2021 3:35 PM','Jan 1 2021 4:00 PM',300)
+print(w_two.get_calories)
 #############################################
 
 
